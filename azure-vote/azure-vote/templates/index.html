@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='default.css') }}">
+    <title>{{title}}</title>
+
+    <script language="JavaScript">
+        function send(form){
+        }
+    </script>
+
+</head>
+<body>
+    <div id="container">
+        <form id="form" name="form" action="/" method="post"><center>
+        <div id="logo">{{title}}</div>
+        <div id="space"></div>
+        <div id="form">
+        <button name="vote" value="{{button1}}" onclick="send()" class="button button1">{{button1}}</button>
+        <button name="vote" value="{{button2}}" onclick="send()" class="button button2">{{button2}}</button>
+        <button name="vote" value="{{button3}}" onclick="send()" class="button button3">{{button3}}</button>
+        <button name="vote" value="{{button4}}" onclick="send()" class="button button4">{{button4}}</button>
+        <button name="vote" value="{{button5}}" onclick="send()" class="button button5">{{button5}}</button>
+        
+        <div id="space"></div>
+        <div id="space"></div>
+        <div id="results"> {{button1}} - {{ value1 }} | {{button2}} - {{ value2 }} | {{button3}} - {{ value3 }} | {{button4}} - {{ value4 }} | {{button5}} - {{ value5 }} </div> 
+        
+        </center>
+        </form>        
+        </div>
+    </div>
+    <div>
+        <div id="space"></div>
+        <div id="space"></div> 
+        <div id="links">The links for each project</div>
+        <div id="space"></div>
+        <div id="space"></div> 
+        <div id="links"><a href="https://github.com/marioleed/simple-rovarspraket-translator">Mario Sannum</></div>
+        <div id="links"><a href="https://github.com/ErikTheCodeMonkey/ToyotaCodeChallenge1">Erik Högström</a> </div>
+        <div id="links"><a href="https://gist.github.com/leinonen/3541be8de9a3e94ecf093caba6c4a126">Peter Leinonen</a></div>
+        <div id="links"><a href="https://github.com/mrBoie/musical-broccoli">Jonas Jonson</a></div>
+        <div id="links"><a href="https://github.com/swizkon/roblang-tdd-workshop">Jonas Jerndin</a></div>
+    </div>  
+    
+</body>
+</html>
