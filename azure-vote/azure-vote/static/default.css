@@ -48,7 +48,7 @@ div#form {
 }
 
 div#results {
-    display:block;
+    display:inline;
     margin: 0 auto;
     width: 1000px;
     text-align: center;
