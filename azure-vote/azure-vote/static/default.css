@@ -51,7 +51,7 @@ div#results {
     display:block;
     margin: 0 auto;
     width: 1000px;
-    text-align: justify;
+    text-align: center;
     font-size:20px;
     font-family:Helvetica;  
 }
