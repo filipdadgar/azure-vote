@@ -11,9 +11,6 @@ services:
       MYSQL_ROOT_PASSWORD: Password12
     ports:
         - "3306:3306"
-  logging:
-    driver: none
-
   azure-vote-front:
     build: ./azure-vote
     depends_on:
@@ -27,5 +24,5 @@ services:
       MYSQL_HOST: azure-vote-back
     ports:
         - "8080:80"
-  logging:
+logging:
     driver: none
