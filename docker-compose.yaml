@@ -4,6 +4,8 @@ services:
     build: ./azure-vote-mysql
     image: azure-vote-back
     container_name: azure-vote-back
+    sysctls:
+      net.core.somaxconn: '511'
     restart: always
     environment:
       MYSQL_USER: dbuser
@@ -23,8 +25,6 @@ services:
         - azure-vote-back
     image: azure-vote-front
     container_name: azure-vote-front
-    sysctls:
-      net.core.somaxconn: '511'
     restart: always
     environment:
       MYSQL_USER: dbuser
