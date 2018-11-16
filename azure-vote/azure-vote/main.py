@@ -71,8 +71,8 @@ def index():
         if request.form['vote'] == 'reset':
             
             # Empty table and return results
-            cursor.execute('''Delete FROM azurevote''')
-            connection.commit()
+            #cursor.execute('''Delete FROM azurevote''')
+            #connection.commit()
             return render_template("index.html", value1=vote1, value2=vote2, value3=vote3, value4=vote4, value5=vote5, button1=button1, button2=button2, button3=button3, button4=button4, button5=button5, title=title)
         else:
 
