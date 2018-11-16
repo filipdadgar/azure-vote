@@ -12,7 +12,10 @@ services:
     ports:
         - "3306:3306"
     logging:
-      driver: none
+      driver: json-file
+      options:
+        max-size: "200k"
+        max-file: "10"
   azure-vote-front:
     build: ./azure-vote
     depends_on:
@@ -27,4 +30,7 @@ services:
     ports:
         - "8080:80"
     logging:
-      driver: none
+      driver: json-file
+      options:
+        max-size: "200k"
+        max-file: "10"
