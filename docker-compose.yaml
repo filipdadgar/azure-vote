@@ -12,6 +12,8 @@ services:
           cpus: '0.25'
     sysctls:
       net.core.somaxconn: '511'
+    security_opt:
+      - seccomp:unconfined
     restart: always
     environment:
       MYSQL_USER: dbuser
@@ -37,8 +39,6 @@ services:
       MYSQL_PASSWORD: Password12
       MYSQL_DATABASE: azurevote
       MYSQL_HOST: azure-vote-back
-    security_opt:
-      - seccomp:unconfined
     ports:
         - "8080:80"
     logging:
