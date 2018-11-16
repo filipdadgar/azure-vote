@@ -78,7 +78,7 @@ def index():
 
             # Insert vote result into DB
             vote = request.form['vote']
-            cursor.execute('''INSERT INTO azurevote (votevalue) VALUES (%s)''', (vote))
+            cursor.execute('''REPLACE INTO azurevote (votevalue) VALUES (%s)''', (vote))
             connection.commit()
             
             # Get current values

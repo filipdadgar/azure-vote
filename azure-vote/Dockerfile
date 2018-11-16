@@ -4,6 +4,7 @@ RUN     apt-get update && \
         apt-get install default-libmysqlclient-dev -y && \
         pip install flask-mysql
 
+COPY    /azure-vote/nginx.conf /etc/nginx/nginx.conf
 ADD     /azure-vote /app
-RUN chmod -R 755 /app/static/
-RUN chmod -R 755 /app/templates/
+RUN     chmod -R 755 /app/static/
+RUN     chmod -R 755 /app/templates/
