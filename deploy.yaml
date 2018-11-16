@@ -1,0 +1,50 @@
+apiVersion: 2018-06-01
+location: northeurope
+name: CG-azure-vote
+properties:
+  containers:
+  - name: azure-vote-back
+    properties:
+      environmentVariables:
+        - name: 'MYSQL_USER'
+          value: 'dbuser'
+        - name: 'MYSQL_PASSWORD'
+          secureValue: 'Password12'
+        - name: 'MYSQL_DATABASE'
+          secureValue: 'azurevote'
+        - name: 'MYSQL_ROOT_PASSWORD'
+          secureValue: 'Password12'
+      image: filipdadgar/azure-vote-back
+      resources:
+        requests:
+          cpu: 1
+          memoryInGb: 1.5
+      ports:
+      - port: 3306
+  - name: azure-vote-front
+    properties:
+      environmentVariables:
+        - name: 'MYSQL_USER'
+          value: 'dbuser'
+        - name: 'MYSQL_PASSWORD'
+          secureValue: 'Password12'
+        - name: 'MYSQL_DATABASE'
+          secureValue: 'azurevote'
+        - name: 'MYSQL_ROOT_PASSWORD'
+          secureValue: 'Password12'
+      image: filipdadgar/azure-vote-front
+      resources:
+        requests:
+          cpu: 1
+          memoryInGb: 1.5
+      ports:
+      - port: 80
+  osType: Linux
+  restartPolicy: Always
+  ipAddress:
+    type: Public
+    ports:
+    - protocol: tcp
+      port: '80'
+tags: null
+type: Microsoft.ContainerInstance/containerGroups

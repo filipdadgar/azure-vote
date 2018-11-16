@@ -1,0 +1,36 @@
+additional_properties: {}
+apiVersion: '2018-06-01'
+location: northeurope
+name: CG-azure-vote
+properties:
+  containers:
+  - name: azure-vote-back
+    properties:
+      environmentVariables: []
+      image: filipdadgar/azure-vote-back
+      ports:
+      - port: 3306
+      resources:
+        requests:
+          cpu: 1.0
+          memoryInGB: 1.5
+  - name: azure-vote-front
+    properties:
+      environmentVariables: []
+      image: filipdadgar/azure-vote-front
+      ports:
+      - port: 80
+      resources:
+        requests:
+          cpu: 1.0
+          memoryInGB: 1.5
+  ipAddress:
+    ip: 13.69.143.22
+    ports:
+    - port: 80
+      protocol: TCP
+    type: Public
+  osType: Linux
+  restartPolicy: Always
+tags: null
+type: Microsoft.ContainerInstance/containerGroups

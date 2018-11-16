@@ -4,6 +4,7 @@ services:
     build: ./azure-vote-mysql
     image: azure-vote-back
     container_name: azure-vote-back
+    restart: always
     environment:
       MYSQL_USER: dbuser
       MYSQL_PASSWORD: Password12
@@ -22,6 +23,9 @@ services:
         - azure-vote-back
     image: azure-vote-front
     container_name: azure-vote-front
+    sysctls:
+      net.core.somaxconn: '511'
+    restart: always
     environment:
       MYSQL_USER: dbuser
       MYSQL_PASSWORD: Password12
