@@ -1,0 +1,35 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -f docker-compose.yaml
+    kompose.version: 1.17.0 ()
+  creationTimestamp: null
+  labels:
+    io.kompose.service: azure-vote-front
+  name: azure-vote-front
+spec:
+  replicas: 1
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.service: azure-vote-front
+    spec:
+      containers:
+      - env:
+        - name: MYSQL_DATABASE
+          value: azurevote
+        - name: MYSQL_HOST
+          value: azure-vote-back
+        - name: MYSQL_PASSWORD
+          value: Password12
+        - name: MYSQL_USER
+          value: dbuser
+        image: azure-vote-front
+        name: azure-vote-front
+        ports:
+        - containerPort: 80
+      restartPolicy: Always
+status: {}
