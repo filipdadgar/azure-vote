@@ -13,6 +13,15 @@ div#space {
     height: 10px;
  
 }
+div#warning {
+    display:block;
+    margin: 0 auto;
+    font-size: 8px;
+    color: red;
+    width: 500px;
+    height: 10px;
+ 
+}
 
 div#logo {
     display:block;
