@@ -49,8 +49,9 @@ def index():
     if request.method == 'GET':
 
         # Get current values
-        cursor.execute('''Select votevalue, count(votevalue) as count From azurevote.azurevote
-        group by votevalue''')
+        #cursor.execute('''Select votevalue, count(votevalue) as count From azurevote.azurevote
+        #group by votevalue''')
+        cursor.execute('''Select votevalue, counter From azurevote.azurevote''')
         results = cursor.fetchall()
 
         # Parse results
@@ -82,12 +83,14 @@ def index():
 
             # Insert vote result into DB
             vote = request.form['vote']
-            cursor.execute('''REPLACE INTO azurevote (votevalue) VALUES (%s)''', (vote))
+            #cursor.execute('''REPLACE INTO azurevote (votevalue) VALUES (%s)''', (vote))
+            cursor.execute('''UPDATE azurevote SET counter=counter+1 WHERE votevalue=(%s)''', (vote))
             connection.commit()
             
             # Get current values
-            cursor.execute('''Select votevalue, count(votevalue) as count From azurevote.azurevote
-            group by votevalue''')
+            #cursor.execute('''Select votevalue, count(votevalue) as count From azurevote.azurevote
+            #group by votevalue''')
+            cursor.execute('''Select votevalue, counter From azurevote.azurevote''')
             results = cursor.fetchall()
 
             # Parse results
