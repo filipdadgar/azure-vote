@@ -31,5 +31,11 @@ spec:
         name: azure-vote-front
         ports:
         - containerPort: 80
+        resources:
+          limits:
+            cpu: 300m
+            memory: 500m
+          requests:
+            cpu: 250m
       restartPolicy: Always
 status: {}
