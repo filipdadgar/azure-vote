@@ -7,7 +7,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.70'
+          cpus: '0.50'
         reservations:
           cpus: '0.25'
     sysctls:
@@ -33,6 +33,8 @@ services:
         - azure-vote-back
     image: azure-vote-front
     container_name: azure-vote-front
+    sysctls:
+      net.core.somaxconn: '200'
     restart: always
     environment:
       MYSQL_USER: dbuser
