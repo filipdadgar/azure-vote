@@ -15,6 +15,7 @@ button3 =       app.config['VOTE3VALUE']
 button4 =       app.config['VOTE4VALUE']
 button5 =       app.config['VOTE5VALUE']
 button6 =       app.config['VOTE6VALUE']
+button7 =       app.config['VOTE7VALUE']
 title =         app.config['TITLE']
 
 # MySQL configurations
@@ -45,6 +46,7 @@ def index():
     vote4 = 0
     vote5 = 0
     vote6 = 0
+    vote7 = 0
 
     if request.method == 'GET':
 
@@ -67,10 +69,12 @@ def index():
             elif i[0] == app.config['VOTE5VALUE']:
                 vote5 = i[1]
             elif i[0] == app.config['VOTE6VALUE']:
-                vote6 = i[1]        
+                vote6 = i[1]
+            elif i[0] == app.config['VOTE7VALUE']:
+                vote7 = i[1]         
 
         # Return index with values
-        return render_template("index.html", value1=vote1, value2=vote2, value3=vote3, value4=vote4, value5=vote5, value6=vote6, button1=button1, button2=button2, button3=button3, button4=button4, button5=button5, button6=button6, title=title)
+        return render_template("index.html", value1=vote1, value2=vote2, value3=vote3, value4=vote4, value5=vote5, value6=vote6, value7=vote7, button1=button1, button2=button2, button3=button3, button4=button4, button5=button5, button6=button6, button7=button7, title=title)
     elif request.method == 'POST':
 
         if request.form['vote'] == 'reset':
@@ -78,7 +82,7 @@ def index():
             # Empty table and return results
             #cursor.execute('''Delete FROM azurevote''')
             #connection.commit()
-            return render_template("index.html", value1=vote1, value2=vote2, value3=vote3, value4=vote4, value5=vote5, value6=vote6, button1=button1, button2=button2, button3=button3, button4=button4, button5=button5, button6=button6, title=title)
+            return render_template("index.html", value1=vote1, value2=vote2, value3=vote3, value4=vote4, value5=vote5, value6=vote6, value7=vote7, button1=button1, button2=button2, button3=button3, button4=button4, button5=button5, button6=button6, button7=button7, title=title)
         else:
 
             # Insert vote result into DB
@@ -106,10 +110,12 @@ def index():
                 elif i[0] == app.config['VOTE5VALUE']:
                     vote5 = i[1]
                 elif i[0] == app.config['VOTE6VALUE']:
-                    vote6 = i[1]              
+                    vote6 = i[1]
+                elif i[0] == app.config['VOTE7VALUE']:
+                    vote7 = i[1]              
                 
             # Return results
-            return render_template("index.html", value1=vote1, value2=vote2, value3=vote3, value4=vote4, value5=vote5, value6=vote6, button1=button1, button2=button2, button3=button3, button4=button4, button5=button5, button6=button6, title=title)
+            return render_template("index.html", value1=vote1, value2=vote2, value3=vote3, value4=vote4, value5=vote5, value6=vote6, value7=vote7, button1=button1, button2=button2, button3=button3, button4=button4, button5=button5, button6=button6, button7=button7, title=title)
             
 @app.route('/results')
 def results():
